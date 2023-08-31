@@ -15,4 +15,5 @@ public class Role {
     private Short id;
 
     private String role;
+    private boolean disabled;
 }

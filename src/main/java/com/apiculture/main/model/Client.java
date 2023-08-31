@@ -25,6 +25,6 @@ public class Client {
     private int beehives;
     private String phone;
     private String email;
-    private int status;
+    private Status client_status;
 
 }
