@@ -33,7 +33,7 @@ public class User {
     private String email;
 
     @ManyToOne
-    @Column(nullable = false, columnDefinition = "integer default 1")
+    @Column(nullable = false)
     private Role user_role;
 
     @ManyToOne
