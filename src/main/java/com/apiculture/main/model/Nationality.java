@@ -8,8 +8,8 @@ import javax.persistence.Id;
 
 import lombok.Data;
 
-@Entity
 @Data
+@Entity
 public class Nationality {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

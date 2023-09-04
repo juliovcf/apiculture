@@ -17,17 +17,29 @@ public class Client {
 
     @Column(nullable = false)
     private String name;
+
     @Column(nullable = false)
     private String surname;
+
     private String dni;
+
     private String adress;
+
     private String postalCode;
+
     private String location;
+
     private String rega;
+
     private Nationality nationality;
+
     private int beehives;
+
     private String phone;
+
     private String email;
-    private Status client_status;
+
+    @Column(name = "client_status")
+    private Status status;
 
 }
