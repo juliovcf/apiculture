@@ -1,5 +1,7 @@
 package com.apiculture.main.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import lombok.Data;
 
@@ -47,5 +53,16 @@ public class Client {
   @ManyToOne
   @JoinColumn(name = "status_id")
   private Status status;
+
+  @CreatedDate // Marca este campo como la fecha de creación
+  private Date createdAt;
+
+  @LastModifiedDate // Marca este campo como la fecha de modificación
+  private Date updatedAt;
+
+  @CreatedBy
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user; // Usuario que modificó el registro
 
 }
