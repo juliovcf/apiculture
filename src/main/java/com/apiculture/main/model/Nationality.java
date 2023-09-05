@@ -11,6 +11,7 @@ import lombok.Data;
 @Data
 @Entity
 public class Nationality {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

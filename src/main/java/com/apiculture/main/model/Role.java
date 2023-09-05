@@ -11,12 +11,15 @@ import lombok.Data;
 @Data
 @Entity
 public class Role {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 
     @Column(nullable = false)
     private String role;
+
     @Column(nullable = false, columnDefinition = "boolean default true")
     private boolean disabled;
+
 }

@@ -5,13 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "\"user\"")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,10 +37,11 @@ public class User {
     private String email;
 
     @ManyToOne
-    @Column(nullable = false)
-    private Role user_role;
+    @JoinColumn(name = "role_id")
+    private Role role;
 
     @ManyToOne
-    private Status user_status;
+    @JoinColumn(name = "status_id")
+    private Status status;
 
 }
