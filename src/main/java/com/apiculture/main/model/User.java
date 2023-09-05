@@ -16,32 +16,32 @@ import lombok.Data;
 @Table(name = "\"user\"")
 public class User {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(nullable = false)
-    private String name;
+  @Column(nullable = false)
+  private String name;
 
-    @Column(nullable = false)
-    private String surname;
+  @Column(nullable = false)
+  private String surname;
 
-    @Column(nullable = false, name = "user_name")
-    private String username;
+  @Column(nullable = false, name = "user_name")
+  private String username;
 
-    @Column(nullable = false)
-    private String password;
+  @Column(nullable = false)
+  private String password;
 
-    private String phone;
+  private String phone;
 
-    private String email;
+  private String email;
 
-    @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
+  @ManyToOne
+  @JoinColumn(name = "role_id")
+  private Role role;
 
-    @ManyToOne
-    @JoinColumn(name = "status_id")
-    private Status status;
+  @ManyToOne
+  @JoinColumn(name = "status_id")
+  private Status status;
 
 }

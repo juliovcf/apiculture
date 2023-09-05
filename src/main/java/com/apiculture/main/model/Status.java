@@ -11,10 +11,10 @@ import lombok.Data;
 @Entity
 public class Status {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Short id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Short id;
 
-    private String role;
+  private String role;
 
 }
