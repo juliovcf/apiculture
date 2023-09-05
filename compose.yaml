@@ -1,9 +1,0 @@
-services:
-  postgres:
-    image: 'postgres:latest'
-    environment:
-      - 'POSTGRES_DB=apiculture'
-      - 'POSTGRES_PASSWORD=laboratorio'
-      - 'POSTGRES_USER=jperecab'
-    ports:
-      - '5432'
