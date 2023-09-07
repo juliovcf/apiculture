@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.apiculture.main.controller.ClientController;
 import com.apiculture.main.exception.GenericException;
 import com.apiculture.main.model.Client;
+import com.apiculture.main.model.Status;
 import com.apiculture.main.service.ClientService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
@@ -75,6 +76,19 @@ public class ClientControllerImpl implements ClientController {
 
     try {
       responseEntity = ResponseUtils.getResponseEntity(service.delete(id));
+    } catch (GenericException e) {
+      responseEntity = ResponseUtils.getResponseEntity(e);
+    }
+
+    return responseEntity;
+  }
+
+  @Override
+  public ResponseEntity<ResponseObject> getByStatus(Status status) {
+    ResponseEntity<ResponseObject> responseEntity;
+
+    try {
+      responseEntity = ResponseUtils.getResponseEntity(service.findByStatus(status));
     } catch (GenericException e) {
       responseEntity = ResponseUtils.getResponseEntity(e);
     }

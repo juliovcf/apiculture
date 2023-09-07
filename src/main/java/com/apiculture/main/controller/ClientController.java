@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.apiculture.main.model.Client;
+import com.apiculture.main.model.Status;
 import com.apiculture.main.utils.ResponseObject;
 
 @RequestMapping("/clients")
@@ -29,5 +30,8 @@ public interface ClientController {
 
   @DeleteMapping(value = "/{id}")
   ResponseEntity<ResponseObject> delete(@PathVariable(required = true) Long id);
+
+  @PostMapping(value = "/{status}")
+  ResponseEntity<ResponseObject> getByStatus(@RequestBody Status status);
 
 }

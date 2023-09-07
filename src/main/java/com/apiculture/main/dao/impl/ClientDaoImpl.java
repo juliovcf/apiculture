@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.apiculture.main.dao.ClientDao;
 import com.apiculture.main.model.Client;
+import com.apiculture.main.model.Status;
 import com.apiculture.main.repository.ClientRepository;
 
 @Component
@@ -45,9 +46,14 @@ public class ClientDaoImpl implements ClientDao {
       return 0; // Éxito
     } catch (EmptyResultDataAccessException e) {
       return 1; // No se encontró un registro con el ID especificado
-    } catch (Exception ex) {
+    } catch (Exception e) {
       return -1; // Ocurrió un error inesperado
     }
+  }
+
+  @Override
+  public List<Client> findByStatus(Status status) {
+    return clientRepository.findByStatus(status);
   }
 
 }

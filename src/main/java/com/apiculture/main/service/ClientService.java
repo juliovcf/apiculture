@@ -5,10 +5,11 @@ import java.util.Optional;
 
 import com.apiculture.main.exception.GenericException;
 import com.apiculture.main.model.Client;
+import com.apiculture.main.model.Status;
 
 public interface ClientService {
 
-  Client create (Client client) throws GenericException;
+  Client create(Client client) throws GenericException;
 
   List<Client> findAll() throws GenericException;
 
@@ -17,5 +18,7 @@ public interface ClientService {
   Client update(Long id, Client client) throws GenericException;
 
   int delete(Long id) throws GenericException;
+
+  List<Client> findByStatus(Status status) throws GenericException;
 
 }
