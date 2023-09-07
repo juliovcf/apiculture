@@ -5,13 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Component;
 
 import com.apiculture.main.dao.ClientDao;
 import com.apiculture.main.model.Client;
 import com.apiculture.main.repository.ClientRepository;
 
-@Repository
+@Component
 public class ClientDaoImpl implements ClientDao {
 
   @Autowired
