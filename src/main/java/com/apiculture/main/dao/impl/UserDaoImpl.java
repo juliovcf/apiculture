@@ -5,12 +5,14 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.apiculture.main.dao.UserDao;
 import com.apiculture.main.model.Role;
 import com.apiculture.main.model.User;
 import com.apiculture.main.repository.UserRepository;
 
+@Repository
 public class UserDaoImpl implements UserDao {
 
   @Autowired
