@@ -12,11 +12,11 @@ public interface UserDao {
 
   List<User> findAll();
 
-  Optional<User> findById(Long id);
+  Optional<User> findById(int id);
 
-  User update(Long id, User user);
+  User update(int id, User user);
 
-  int delete(Long id);
+  int delete(int id);
 
   List<User> findByRole(Role role);
 }

@@ -13,11 +13,11 @@ public interface ClientService {
 
   List<Client> findAll() throws GenericException;
 
-  Optional<Client> findById(Long id) throws GenericException;
+  Optional<Client> findById(int id) throws GenericException;
 
-  Client update(Long id, Client client) throws GenericException;
+  Client update(int id, Client client) throws GenericException;
 
-  int delete(Long id) throws GenericException;
+  int delete(int id) throws GenericException;
 
   List<Client> findByStatus(Status status) throws GenericException;
 

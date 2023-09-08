@@ -32,7 +32,7 @@ public class UserControllerImpl  implements UserController{
   }
 
   @Override
-  public ResponseEntity<ResponseObject> get(Long id) {
+  public ResponseEntity<ResponseObject> get(int id) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {
@@ -58,7 +58,7 @@ public class UserControllerImpl  implements UserController{
   }
 
   @Override
-  public ResponseEntity<ResponseObject> update(Long id, User user) {
+  public ResponseEntity<ResponseObject> update(int id, User user) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {
@@ -71,7 +71,7 @@ public class UserControllerImpl  implements UserController{
   }
 
   @Override
-  public ResponseEntity<ResponseObject> delete(Long id) {
+  public ResponseEntity<ResponseObject> delete(int id) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {

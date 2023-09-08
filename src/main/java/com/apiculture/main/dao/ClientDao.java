@@ -12,11 +12,11 @@ public interface ClientDao {
 
   List<Client> findAll();
 
-  Optional<Client> findById(Long id);
+  Optional<Client> findById(int id);
 
-  Client update(Long id, Client client);
+  Client update(int id, Client client);
 
-  int delete(Long id);
+  int delete(int id);
 
   List<Client> findByStatus(Status status);
 

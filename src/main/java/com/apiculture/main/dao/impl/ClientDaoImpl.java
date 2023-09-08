@@ -29,18 +29,18 @@ public class ClientDaoImpl implements ClientDao {
   }
 
   @Override
-  public Optional<Client> findById(Long id) {
+  public Optional<Client> findById(int id) {
     return clientRepository.findById(id);
   }
 
   @Override
-  public Client update(Long id, Client client) {
+  public Client update(int id, Client client) {
     client.setId(id);
     return clientRepository.save(client);
   }
 
   @Override
-  public int delete(Long id) {
+  public int delete(int id) {
     try {
       clientRepository.deleteById(id);
       return 0; // Éxito

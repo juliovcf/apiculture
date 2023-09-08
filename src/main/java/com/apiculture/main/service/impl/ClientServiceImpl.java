@@ -39,7 +39,7 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
-  public Optional<Client> findById(Long id) throws GenericException {
+  public Optional<Client> findById(int id) throws GenericException {
     try {
       return dao.findById(id);
     } catch (Exception e) {
@@ -48,7 +48,7 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
-  public Client update(Long id, Client client) throws GenericException {
+  public Client update(int id, Client client) throws GenericException {
     try {
       return dao.update(id, client);
     } catch (EntityNotFoundException e) {
@@ -59,7 +59,7 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
-  public int delete(Long id) throws GenericException {
+  public int delete(int id) throws GenericException {
     try {
       return dao.delete(id);
     } catch (EntityNotFoundException e) {

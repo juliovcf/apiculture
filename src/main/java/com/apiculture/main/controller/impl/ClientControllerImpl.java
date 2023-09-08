@@ -32,7 +32,7 @@ public class ClientControllerImpl implements ClientController {
   }
 
   @Override
-  public ResponseEntity<ResponseObject> get(Long id) {
+  public ResponseEntity<ResponseObject> get(int id) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {
@@ -58,7 +58,7 @@ public class ClientControllerImpl implements ClientController {
   }
 
   @Override
-  public ResponseEntity<ResponseObject> update(Long id, Client client) {
+  public ResponseEntity<ResponseObject> update(int id, Client client) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {
@@ -71,7 +71,7 @@ public class ClientControllerImpl implements ClientController {
   }
 
   @Override
-  public ResponseEntity<ResponseObject> delete(Long id) {
+  public ResponseEntity<ResponseObject> delete(int id) {
     ResponseEntity<ResponseObject> responseEntity;
 
     try {

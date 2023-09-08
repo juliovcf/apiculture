@@ -29,18 +29,18 @@ public class UserDaoImpl implements UserDao {
   }
 
   @Override
-  public Optional<User> findById(Long id) {
+  public Optional<User> findById(int id) {
     return repository.findById(id);
   }
 
   @Override
-  public User update(Long id, User user) {
+  public User update(int id, User user) {
     user.setId(id);
     return repository.save(user);
   }
 
   @Override
-  public int delete(Long id) {
+  public int delete(int id) {
     try {
       repository.deleteById(id);
       return 0; // Éxito

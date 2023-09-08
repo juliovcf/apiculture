@@ -13,11 +13,11 @@ public interface UserService {
 
   List<User> findAll() throws GenericException;
 
-  Optional<User> findById(Long id) throws GenericException;
+  Optional<User> findById(int id) throws GenericException;
 
-  User update(Long id, User user) throws GenericException;
+  User update(int id, User user) throws GenericException;
 
-  int delete(Long id) throws GenericException;
+  int delete(int id) throws GenericException;
 
   List<User> findByRole(Role role) throws GenericException;
 

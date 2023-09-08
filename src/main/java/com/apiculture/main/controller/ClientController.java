@@ -20,16 +20,16 @@ public interface ClientController {
   ResponseEntity<ResponseObject> create(@RequestBody Client client);
 
   @GetMapping("/{id}")
-  ResponseEntity<ResponseObject> get(@PathVariable Long id);
+  ResponseEntity<ResponseObject> get(@PathVariable int id);
 
   @GetMapping
   ResponseEntity<ResponseObject> get();
 
   @PutMapping(value = "/{id}")
-  ResponseEntity<ResponseObject> update(@PathVariable(required = true) Long id, @RequestBody Client client);
+  ResponseEntity<ResponseObject> update(@PathVariable(required = true) int id, @RequestBody Client client);
 
   @DeleteMapping(value = "/{id}")
-  ResponseEntity<ResponseObject> delete(@PathVariable(required = true) Long id);
+  ResponseEntity<ResponseObject> delete(@PathVariable(required = true) int id);
 
   @PostMapping(value = "/{status}")
   ResponseEntity<ResponseObject> getByStatus(@RequestBody Status status);

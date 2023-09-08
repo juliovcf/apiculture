@@ -20,16 +20,16 @@ public interface UserController {
   ResponseEntity<ResponseObject> create(@RequestBody User user);
 
   @GetMapping("/{id}")
-  ResponseEntity<ResponseObject> get(@PathVariable Long id);
+  ResponseEntity<ResponseObject> get(@PathVariable int id);
 
   @GetMapping
   ResponseEntity<ResponseObject> get();
 
   @PutMapping(value = "/{id}")
-  ResponseEntity<ResponseObject> update(@PathVariable(required = true) Long id, @RequestBody User user);
+  ResponseEntity<ResponseObject> update(@PathVariable(required = true) int id, @RequestBody User user);
 
   @DeleteMapping
-  ResponseEntity<ResponseObject> delete(@PathVariable(required = true) Long id);
+  ResponseEntity<ResponseObject> delete(@PathVariable(required = true) int id);
 
   @PostMapping(value = "/{status}")
   ResponseEntity<ResponseObject> getByRole(@RequestBody Role role);

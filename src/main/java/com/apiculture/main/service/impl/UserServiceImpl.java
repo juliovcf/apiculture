@@ -39,7 +39,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public Optional<User> findById(Long id) throws GenericException {
+  public Optional<User> findById(int id) throws GenericException {
     try {
       return dao.findById(id);
     } catch (Exception e) {
@@ -48,7 +48,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public User update(Long id, User user) throws GenericException {
+  public User update(int id, User user) throws GenericException {
     try {
       return dao.update(id, user);
     } catch (EntityNotFoundException e) {
@@ -59,7 +59,7 @@ public class UserServiceImpl implements UserService {
   }
 
   @Override
-  public int delete(Long id) throws GenericException {
+  public int delete(int id) throws GenericException {
     try {
       return dao.delete(id);
     } catch (EntityNotFoundException e) {
