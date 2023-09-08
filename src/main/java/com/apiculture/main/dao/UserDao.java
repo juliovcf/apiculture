@@ -3,6 +3,7 @@ package com.apiculture.main.dao;
 import java.util.List;
 import java.util.Optional;
 
+import com.apiculture.main.model.Role;
 import com.apiculture.main.model.User;
 
 public interface UserDao {
@@ -16,4 +17,6 @@ public interface UserDao {
   User update(Long id, User user);
 
   int delete(Long id);
+
+  List<User> findByRole(Role role);
 }

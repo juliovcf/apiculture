@@ -7,39 +7,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.apiculture.main.dao.UserDao;
+import com.apiculture.main.model.Role;
 import com.apiculture.main.model.User;
 import com.apiculture.main.repository.UserRepository;
 
 public class UserDaoImpl implements UserDao {
 
   @Autowired
-  UserRepository userRepository;
+  UserRepository repository;
 
   @Override
   public User create(User user) {
-    return userRepository.save(user);
+    return repository.save(user);
   }
 
   @Override
   public List<User> findAll() {
-    return userRepository.findAll();
+    return repository.findAll();
   }
 
   @Override
   public Optional<User> findById(Long id) {
-    return userRepository.findById(id);
+    return repository.findById(id);
   }
 
   @Override
   public User update(Long id, User user) {
     user.setId(id);
-    return userRepository.save(user);
+    return repository.save(user);
   }
 
   @Override
   public int delete(Long id) {
     try {
-      userRepository.deleteById(id);
+      repository.deleteById(id);
       return 0; // Éxito
     } catch (EmptyResultDataAccessException e) {
       return 1; // No se encontró un registro con el ID especificado
@@ -48,4 +49,8 @@ public class UserDaoImpl implements UserDao {
     }
   }
 
+  @Override
+  public List<User> findByRole(Role role) {
+    return repository.findByRole(role);
+  }
 }
