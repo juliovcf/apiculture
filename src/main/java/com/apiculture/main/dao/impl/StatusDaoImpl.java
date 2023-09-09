@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.apiculture.main.dao.StatusDao;
 import com.apiculture.main.model.Status;
 import com.apiculture.main.repository.StatusRepository;
 
+@Repository
 public class StatusDaoImpl implements StatusDao {
 
   @Autowired
@@ -26,18 +28,18 @@ public class StatusDaoImpl implements StatusDao {
   }
 
   @Override
-  public Optional<Status> findById(Short id) {
+  public Optional<Status> findById(int id) {
     return statusRepository.findById(id);
   }
 
   @Override
-  public Status update(Short id, Status status) {
+  public Status update(int id, Status status) {
     status.setId(id);
     return statusRepository.save(status);
   }
 
   @Override
-  public int delete(Short id) {
+  public int delete(int id) {
     try {
       statusRepository.deleteById(id);
       return 0; // Éxito

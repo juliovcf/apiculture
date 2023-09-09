@@ -9,29 +9,25 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.apiculture.main.model.Role;
-import com.apiculture.main.model.User;
+import com.apiculture.main.model.Status;
 import com.apiculture.main.utils.ResponseObject;
 
-@RequestMapping("/users")
-public interface UserController {
+@RequestMapping("/status")
+public interface StatusController {
 
   @PostMapping
-  ResponseEntity<ResponseObject> create(@RequestBody User user);
+  ResponseEntity<ResponseObject> create(@RequestBody Status status);
 
   @GetMapping("/{id}")
   ResponseEntity<ResponseObject> get(@PathVariable int id);
 
-  @GetMapping
+  @GetMapping()
   ResponseEntity<ResponseObject> get();
 
   @PutMapping(value = "/{id}")
-  ResponseEntity<ResponseObject> update(@PathVariable(required = true) int id, @RequestBody User user);
+  ResponseEntity<ResponseObject> update(@PathVariable(required = true) int id, @RequestBody Status status);
 
   @DeleteMapping(value = "/{id}")
   ResponseEntity<ResponseObject> delete(@PathVariable(required = true) int id);
-
-  @PostMapping(value = "/{status}")
-  ResponseEntity<ResponseObject> getByRole(@RequestBody Role role);
 
 }

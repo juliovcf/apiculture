@@ -1,5 +1,6 @@
 package com.apiculture.main.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,8 +14,9 @@ public class Status {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Short id;
+  private int id;
 
-  private String role;
+  @Column(nullable = false)
+  private String status;
 
 }

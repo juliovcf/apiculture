@@ -5,11 +5,13 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
 
 import com.apiculture.main.dao.RoleDao;
 import com.apiculture.main.model.Role;
 import com.apiculture.main.repository.RoleRepository;
 
+@Repository
 public class RoleDaoImpl implements RoleDao {
 
   @Autowired

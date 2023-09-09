@@ -8,29 +8,28 @@ import javax.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.apiculture.main.dao.ClientDao;
+import com.apiculture.main.dao.StatusDao;
 import com.apiculture.main.exception.GenericException;
-import com.apiculture.main.model.Client;
 import com.apiculture.main.model.Status;
-import com.apiculture.main.service.ClientService;
+import com.apiculture.main.service.StatusService;
 
 @Service
-public class ClientServiceImpl implements ClientService {
+public class StatusServiceImpl implements StatusService {
 
   @Autowired
-  ClientDao dao;
+  StatusDao dao;
 
   @Override
-  public Client create(Client client) throws GenericException {
+  public Status create(Status status) throws GenericException {
     try {
-      return dao.create(client);
+      return dao.create(status);
     } catch (Exception e) {
       throw new GenericException(e.getMessage(), e, 400);
     }
   }
 
   @Override
-  public List<Client> findAll() throws GenericException {
+  public List<Status> findAll() throws GenericException {
     try {
       return dao.findAll();
     } catch (Exception e) {
@@ -39,24 +38,24 @@ public class ClientServiceImpl implements ClientService {
   }
 
   @Override
-  public Optional<Client> findById(int id) throws GenericException {
+  public Optional<Status> findById(int id) throws GenericException {
     try {
       return dao.findById(id);
     } catch (EntityNotFoundException e) {
-      throw new GenericException("El cliente con ID " + id + " no existe.", e, 400);
-    } catch (Exception e) {
+      throw new GenericException("El status con ID " + id + " no existe.", e, 400);
+    }  catch (Exception e) {
       throw new GenericException(e.getMessage(), e, 400);
     }
   }
 
   @Override
-  public Client update(int id, Client client) throws GenericException {
+  public Status update(int id, Status status) throws GenericException {
     try {
-      return dao.update(id, client);
+      return dao.update(id, status);
     } catch (EntityNotFoundException e) {
-      throw new GenericException("El cliente con ID " + id + " no existe.", e, 400);
+      throw new GenericException("El status con ID " + id + " no existe.", e, 400);
     } catch (Exception e) {
-      throw new GenericException(e.getMessage(), e, 500);
+      throw new GenericException(e.getMessage(), e, 400);
     }
   }
 
@@ -71,14 +70,4 @@ public class ClientServiceImpl implements ClientService {
     }
   }
 
-  @Override
-  public List<Client> findByStatus(Status status) throws GenericException {
-    try {
-      return dao.findByStatus(status);
-    } catch (EntityNotFoundException e) {
-      throw new GenericException("No existen usuarios con " + status, e, 400);
-    } catch (Exception e) {
-      throw new GenericException(e.getMessage(), e, 500);
-    }
-  }
 }

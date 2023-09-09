@@ -11,10 +11,10 @@ public interface StatusDao {
 
   List<Status> findAll();
 
-  Optional<Status> findById(Short id);
+  Optional<Status> findById(int id);
 
-  Status update(Short id, Status status);
+  Status update(int id, Status status);
 
-  int delete(Short id);
+  int delete(int id);
 
 }
