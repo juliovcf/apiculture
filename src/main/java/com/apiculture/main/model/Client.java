@@ -42,9 +42,15 @@ public class Client {
 
   private int beehives;
 
+  private String acount;
+
+  private Double insuranceAmount;
+
   private String phone;
 
   private String email;
+
+  private String note;
 
   @ManyToOne
   @JoinColumn(name = "nationality_id")
