@@ -1,5 +1,6 @@
 package com.apiculture.main.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(unique = true, nullable = false)
   private int id;
 
   @Column(nullable = false)
@@ -36,7 +38,7 @@ public class User {
 
   private String email;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "role_id")
   private Role role;
 

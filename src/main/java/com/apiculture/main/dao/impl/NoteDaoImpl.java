@@ -7,40 +7,41 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Repository;
 
-import com.apiculture.main.dao.ClientDao;
+import com.apiculture.main.dao.NoteDao;
 import com.apiculture.main.model.Client;
+import com.apiculture.main.model.Note;
 import com.apiculture.main.model.Status;
-import com.apiculture.main.repository.ClientRepository;
+import com.apiculture.main.repository.NoteRepository;
 
 @Repository
-public class ClientDaoImpl implements ClientDao {
+public class NoteDaoImpl implements NoteDao {
 
   @Autowired
-  ClientRepository repository;
+  NoteRepository repository;
 
   @Override
-  public Client create(Client client) {
-    return repository.save(client);
+  public Note create(Note note) {
+    return repository.save(note);
   }
 
   @Override
-  public List<Client> findAll() {
+  public List<Note> findAll() {
     return repository.findAll();
   }
 
   @Override
-  public Optional<Client> findById(int id) {
+  public Optional<Note> findById(Long id) {
     return repository.findById(id);
   }
 
   @Override
-  public Client update(int id, Client client) {
-    client.setId(id);
-    return repository.save(client);
+  public Note update(Long id, Note note) {
+    note.setId(id);
+    return repository.save(note);
   }
 
   @Override
-  public int delete(int id) {
+  public int delete(Long id) {
     try {
       repository.deleteById(id);
       return 0; // Éxito
@@ -52,8 +53,13 @@ public class ClientDaoImpl implements ClientDao {
   }
 
   @Override
-  public List<Client> findByStatus(Status status) {
+  public List<Note> findByStatus(Status status) {
     return repository.findByStatus(status);
+  }
+
+  @Override
+  public List<Note> findByClient(Client client){
+    return repository.findByClient(client);
   }
 
 }

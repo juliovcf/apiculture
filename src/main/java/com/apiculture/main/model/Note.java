@@ -1,22 +1,36 @@
 package com.apiculture.main.model;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.Data;
 
 @Data
 @Entity
-public class Status {
+public class Note {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(unique = true, nullable = false)
-  private int id;
+  private Long id;
 
-  private String name;
+  @ManyToOne
+  @JoinColumn(name = "client_id")
+  private Client client;
+
+  private Date createdDate;
+
+  private String note;
+
+  @ManyToOne
+  @JoinColumn(name = "status_id")
+  private Status status;
 
 }

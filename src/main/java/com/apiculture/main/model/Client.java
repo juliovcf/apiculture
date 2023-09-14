@@ -54,6 +54,7 @@ public class Client {
 
   @ManyToOne
   @JoinColumn(name = "nationality_id")
+  @Column(unique = true, nullable = false)
   private Nationality nationality;
 
   @ManyToOne
