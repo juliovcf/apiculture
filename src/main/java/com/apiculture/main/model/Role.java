@@ -14,6 +14,7 @@ public class Role {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(unique = true, nullable = false)
   private Short id;
 
   @Column(nullable = false)

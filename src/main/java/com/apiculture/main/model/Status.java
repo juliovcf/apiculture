@@ -14,9 +14,9 @@ public class Status {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(unique = true, nullable = false)
   private int id;
 
-  @Column(nullable = false)
-  private String status;
+  private String name;
 
 }

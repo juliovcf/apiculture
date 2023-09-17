@@ -1,5 +1,7 @@
 package com.apiculture.main.model;
 
+import java.sql.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,39 +10,25 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
-@Table(name = "\"user\"")
-public class User {
+public class Note {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(unique = true, nullable = false)
-  private int id;
+  private Long id;
 
-  @Column(nullable = false)
-  private String name;
+  @ManyToOne
+  @JoinColumn(name = "client_id")
+  private Client client;
 
-  @Column(nullable = false)
-  private String surname;
+  private Date createdDate;
 
-  @Column(nullable = false, name = "user_name")
-  private String username;
-
-  @Column(nullable = false)
-  private String password;
-
-  private String phone;
-
-  private String email;
-
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "role_id")
-  private Role role;
+  private String note;
 
   @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "status_id")

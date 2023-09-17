@@ -2,6 +2,7 @@ package com.apiculture.main.model;
 
 import java.sql.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -67,7 +68,7 @@ public class Client {
   private Date updatedAt;
 
   @CreatedBy
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name = "user_id")
   private User user; // Usuario que modificó el registro
 
