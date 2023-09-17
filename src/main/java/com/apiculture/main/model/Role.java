@@ -19,7 +19,4 @@ public class Role {
   @Column(nullable = false)
   private String role;
 
-  @Column(nullable = false, columnDefinition = "boolean default true")
-  private boolean disabled;
-
 }
