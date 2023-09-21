@@ -37,10 +37,12 @@ public class Note {
   @JoinColumn(name = "status_id")
   private Status status;
 
-  @CreatedDate // Marca este campo como la fecha de creación
+  @Column(updatable = false)
+  @CreatedDate
   private Date createdAt;
 
-  @LastModifiedDate // Marca este campo como la fecha de modificación
+  @Column(insertable = false)
+  @LastModifiedDate
   private Date updatedAt;
 
 }

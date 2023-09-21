@@ -18,6 +18,6 @@ public class Role {
   private Short id;
 
   @Column(nullable = false)
-  private String role;
+  private String name;
 
 }

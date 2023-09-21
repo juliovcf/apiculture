@@ -12,8 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
@@ -54,11 +54,11 @@ public class User {
   private Status status;
 
   @Column(updatable = false)
-  @CreationTimestamp // Marca este campo como la fecha de creación
+  @CreatedDate
   private LocalDateTime createdAt;
 
   @Column(insertable = false)
-  @UpdateTimestamp // Marca este campo como la fecha de modificación
+  @LastModifiedDate
   private LocalDateTime updatedAt;
 
 }

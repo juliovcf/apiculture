@@ -68,10 +68,12 @@ public class Client {
   @JoinColumn(name = "user_id")
   private User user; // Usuario que modificó el registro
 
-  @CreatedDate // Marca este campo como la fecha de creación
+  @Column(updatable = false)
+  @CreatedDate
   private Date createdAt;
 
-  @LastModifiedDate // Marca este campo como la fecha de modificación
+  @Column(insertable = false)
+  @LastModifiedDate
   private Date updatedAt;
 
 }
