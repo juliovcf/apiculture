@@ -1,8 +1,10 @@
 package com.apiculture.main.model;
 
-import javax.persistence.CascadeType;
+import java.time.Instant;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -10,10 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import lombok.Data;
 
 @Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name = "\"user\"")
 public class User {
 
@@ -38,12 +45,20 @@ public class User {
 
   private String email;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "role_id")
   private Role role;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name = "status_id")
   private Status status;
+
+  @Column(updatable = false)
+  @CreationTimestamp // Marca este campo como la fecha de creación
+  private Instant createdAt;
+
+  @Column(insertable = false)
+  @UpdateTimestamp // Marca este campo como la fecha de modificación
+  private Instant updatedAt;
 
 }

@@ -2,9 +2,9 @@ package com.apiculture.main.model;
 
 import java.sql.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -14,11 +14,13 @@ import javax.persistence.ManyToOne;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import lombok.Data;
 
 @Data
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class Client {
 
   @Id
@@ -61,15 +63,15 @@ public class Client {
   @JoinColumn(name = "status_id")
   private Status status;
 
+  @CreatedBy
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user; // Usuario que modificó el registro
+
   @CreatedDate // Marca este campo como la fecha de creación
   private Date createdAt;
 
   @LastModifiedDate // Marca este campo como la fecha de modificación
   private Date updatedAt;
-
-  @CreatedBy
-  @ManyToOne(cascade = CascadeType.ALL)
-  @JoinColumn(name = "user_id")
-  private User user; // Usuario que modificó el registro
 
 }
