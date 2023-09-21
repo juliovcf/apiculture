@@ -1,6 +1,6 @@
 package com.apiculture.main.model;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -55,10 +55,10 @@ public class User {
 
   @Column(updatable = false)
   @CreationTimestamp // Marca este campo como la fecha de creación
-  private Instant createdAt;
+  private LocalDateTime createdAt;
 
   @Column(insertable = false)
   @UpdateTimestamp // Marca este campo como la fecha de modificación
-  private Instant updatedAt;
+  private LocalDateTime updatedAt;
 
 }
