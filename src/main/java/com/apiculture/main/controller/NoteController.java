@@ -14,7 +14,7 @@ import com.apiculture.main.model.Note;
 import com.apiculture.main.model.Status;
 import com.apiculture.main.utils.ResponseObject;
 
-@RequestMapping("{/notes}")
+@RequestMapping("/notes")
 public interface NoteController {
 
   @PostMapping
@@ -32,10 +32,10 @@ public interface NoteController {
   @DeleteMapping(value = "/{id}")
   ResponseEntity<ResponseObject> delete(@PathVariable(required = true) Long id);
 
-  @PostMapping(value = "/{status}")
+  @PostMapping(value = "/status")
   ResponseEntity<ResponseObject> getByStatus(@RequestBody Status status);
 
-  @PostMapping(value = "/{client}")
+  @PostMapping(value = "/client")
   ResponseEntity<ResponseObject> getByClient(@RequestBody(required = true) Client client);
 
 }

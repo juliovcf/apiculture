@@ -31,7 +31,7 @@ public interface ClientController {
   @DeleteMapping(value = "/{id}")
   ResponseEntity<ResponseObject> delete(@PathVariable(required = true) int id);
 
-  @PostMapping(value = "/{status}")
+  @PostMapping(value = "/status")
   ResponseEntity<ResponseObject> getByStatus(@RequestBody Status status);
 
 }

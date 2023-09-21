@@ -1,6 +1,6 @@
 package com.apiculture.main.model;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -70,10 +70,10 @@ public class Client {
 
   @Column(updatable = false)
   @CreatedDate
-  private Date createdAt;
+  private LocalDateTime createdAt;
 
   @Column(insertable = false)
   @LastModifiedDate
-  private Date updatedAt;
+  private LocalDateTime updatedAt;
 
 }

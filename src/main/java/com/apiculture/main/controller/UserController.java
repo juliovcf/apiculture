@@ -31,7 +31,7 @@ public interface UserController {
   @DeleteMapping(value = "/{id}")
   ResponseEntity<ResponseObject> delete(@PathVariable(required = true) int id);
 
-  @PostMapping(value = "/{status}")
+  @PostMapping(value = "/role")
   ResponseEntity<ResponseObject> getByRole(@RequestBody Role role);
 
 }
