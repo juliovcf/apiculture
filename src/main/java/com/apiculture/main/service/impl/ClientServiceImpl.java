@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.persistence.EntityNotFoundException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.apiculture.main.dao.ClientDao;
@@ -24,8 +25,10 @@ public class ClientServiceImpl implements ClientService {
   public Client create(Client client) throws GenericException {
     try {
       return dao.create(client);
+    } catch (DataIntegrityViolationException e) {
+      throw new GenericException("Los datos introducidos son incorrectos", e, 400);
     } catch (Exception e) {
-      throw new GenericException(e.getMessage(), e, 400);
+      throw new GenericException(e.getMessage(), e, 500);
     }
   }
 
