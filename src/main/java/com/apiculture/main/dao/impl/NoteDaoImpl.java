@@ -58,8 +58,13 @@ public class NoteDaoImpl implements NoteDao {
   }
 
   @Override
-  public List<Note> findByClient(Client client){
+  public List<Note> findByClient(Client client) {
     return repository.findByClient(client);
+  }
+
+  @Override
+  public List<Note> findByClientAndStatus(Client client, Status status) {
+    return repository.findByClientAndStatus(client, status);
   }
 
 }

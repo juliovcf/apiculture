@@ -9,7 +9,9 @@ import com.apiculture.main.exception.GenericException;
 import com.apiculture.main.model.Client;
 import com.apiculture.main.model.Note;
 import com.apiculture.main.model.Status;
+import com.apiculture.main.service.ClientService;
 import com.apiculture.main.service.NoteService;
+import com.apiculture.main.service.StatusService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
@@ -18,6 +20,12 @@ public class NoteControllerImpl implements NoteController {
 
   @Autowired
   private NoteService service;
+
+  @Autowired
+  private ClientService clientService;
+
+  @Autowired
+  private StatusService statusService;
 
   @Override
   public ResponseEntity<ResponseObject> create(Note note) {
@@ -103,6 +111,21 @@ public class NoteControllerImpl implements NoteController {
 
     try {
       responseEntity = ResponseUtils.getResponseEntity(service.findByClient(client));
+    } catch (GenericException e) {
+      responseEntity = ResponseUtils.getResponseEntity(e);
+    }
+
+    return responseEntity;
+  }
+
+  @Override
+  public ResponseEntity<ResponseObject> getByClientAndStatus(int clientId, int statusId) {
+    ResponseEntity<ResponseObject> responseEntity;
+
+    try {
+      Client client = clientService.findById(clientId).orElse(null);
+      Status status = statusService.findById(statusId).orElse(null);
+      responseEntity = ResponseUtils.getResponseEntity(service.findByClientAndStatus(client, status));
     } catch (GenericException e) {
       responseEntity = ResponseUtils.getResponseEntity(e);
     }

@@ -24,4 +24,6 @@ public interface NoteService {
 
   List<Note> findByClient(Client client) throws GenericException;
 
+  List<Note> findByClientAndStatus(Client client, Status status) throws GenericException;
+
 }

@@ -14,4 +14,6 @@ public interface NoteRepository extends JpaRepository<Note, Long> {
 
   public List<Note> findByClient(Client client);
 
+  public List<Note> findByClientAndStatus(Client client, Status status);
+
 }

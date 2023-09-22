@@ -23,4 +23,6 @@ public interface NoteDao {
 
   List<Note> findByClient(Client client);
 
+  List<Note> findByClientAndStatus(Client client, Status status);
+
 }

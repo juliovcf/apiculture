@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.apiculture.main.model.Client;
 import com.apiculture.main.model.Note;
@@ -37,5 +38,8 @@ public interface NoteController {
 
   @PostMapping(value = "/client")
   ResponseEntity<ResponseObject> getByClient(@RequestBody(required = true) Client client);
+
+  @PostMapping(value = "/client_status")
+  ResponseEntity<ResponseObject> getByClientAndStatus(@RequestParam int clientId, @RequestParam int statusId);
 
 }

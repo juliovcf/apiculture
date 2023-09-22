@@ -16,7 +16,7 @@ import com.apiculture.main.model.Status;
 import com.apiculture.main.service.NoteService;
 
 @Service
-public class NoteServiceImpl implements NoteService{
+public class NoteServiceImpl implements NoteService {
 
   @Autowired
   NoteDao dao;
@@ -81,8 +81,19 @@ public class NoteServiceImpl implements NoteService{
       return dao.findByClient(client);
     } catch (EntityNotFoundException e) {
       throw new GenericException("No existen notas para " + client, e, 400);
-    }catch (Exception e) {
+    } catch (Exception e) {
       throw new GenericException(e.getMessage(), e, 500);
+    }
+  }
+
+  @Override
+  public List<Note> findByClientAndStatus(Client client, Status status) throws GenericException {
+    try {
+      return dao.findByClientAndStatus(client, status);
+    } catch (EntityNotFoundException e) {
+      throw new GenericException("No existen notas para el cliente " + client + " con estado " + status, e, 404);
+    } catch (Exception e) {
+      throw new GenericException("Error al buscar notas por cliente y estado", e, 500);
     }
   }
 
