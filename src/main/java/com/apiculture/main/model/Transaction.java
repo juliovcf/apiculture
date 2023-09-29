@@ -19,15 +19,19 @@ public class Transaction {
   @Column(unique = true, nullable = false)
   private Long id;
 
+  private double amount;
+
   private TransactionType transactionType;
 
   private PaymentType paymentType;
 
   @ManyToOne
-  @JoinColumn(name = "user_id")
+  @JoinColumn(name = "cliente_id")
   private Client client;
 
-  private double amount;
+  @ManyToOne
+  @JoinColumn(name = "user_id")
+  private User user;
 
   private String description;
 
