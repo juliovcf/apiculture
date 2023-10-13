@@ -2,7 +2,8 @@ package com.apiculture.main.controller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.apiculture.main.controller.TransactionController;
 import com.apiculture.main.exception.GenericException;
@@ -12,7 +13,8 @@ import com.apiculture.main.service.TransactionService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
-@Controller
+@RestController
+@CrossOrigin
 public class TransactionControllerImpl implements TransactionController {
 
   @Autowired

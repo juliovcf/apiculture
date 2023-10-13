@@ -14,7 +14,7 @@ import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin
 public class ClientControllerImpl implements ClientController {
 
   @Autowired

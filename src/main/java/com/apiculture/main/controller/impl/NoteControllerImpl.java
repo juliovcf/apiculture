@@ -2,6 +2,7 @@ package com.apiculture.main.controller.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.apiculture.main.controller.NoteController;
@@ -16,6 +17,7 @@ import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
 @RestController
+@CrossOrigin
 public class NoteControllerImpl implements NoteController {
 
   @Autowired
