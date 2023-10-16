@@ -12,8 +12,8 @@ import com.apiculture.main.service.StatusService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
-@RestController
 @CrossOrigin
+@RestController
 public class StatusControllerImpl implements StatusController {
 
   @Autowired

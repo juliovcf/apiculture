@@ -13,8 +13,8 @@ import com.apiculture.main.service.TransactionService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
-@RestController
 @CrossOrigin
+@RestController
 public class TransactionControllerImpl implements TransactionController {
 
   @Autowired

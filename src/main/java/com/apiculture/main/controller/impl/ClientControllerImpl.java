@@ -13,8 +13,8 @@ import com.apiculture.main.service.ClientService;
 import com.apiculture.main.utils.ResponseObject;
 import com.apiculture.main.utils.ResponseUtils;
 
-@RestController
 @CrossOrigin
+@RestController
 public class ClientControllerImpl implements ClientController {
 
   @Autowired
