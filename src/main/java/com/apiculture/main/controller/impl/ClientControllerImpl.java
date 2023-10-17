@@ -21,6 +21,19 @@ public class ClientControllerImpl implements ClientController {
   private ClientService service;
 
   @Override
+  public ResponseEntity<ResponseObject> get() {
+    ResponseEntity<ResponseObject> responseEntity;
+
+    try {
+      responseEntity = ResponseUtils.getResponseEntity(service.findAll());
+    } catch (GenericException e) {
+      responseEntity = ResponseUtils.getResponseEntity(e);
+    }
+
+    return responseEntity;
+  }
+
+  @Override
   public ResponseEntity<ResponseObject> create(Client client) {
     ResponseEntity<ResponseObject> responseEntity;
 
@@ -39,19 +52,6 @@ public class ClientControllerImpl implements ClientController {
 
     try {
       responseEntity = ResponseUtils.getResponseEntity(service.findById(id));
-    } catch (GenericException e) {
-      responseEntity = ResponseUtils.getResponseEntity(e);
-    }
-
-    return responseEntity;
-  }
-
-  @Override
-  public ResponseEntity<ResponseObject> get() {
-    ResponseEntity<ResponseObject> responseEntity;
-
-    try {
-      responseEntity = ResponseUtils.getResponseEntity(service.findAll());
     } catch (GenericException e) {
       responseEntity = ResponseUtils.getResponseEntity(e);
     }
