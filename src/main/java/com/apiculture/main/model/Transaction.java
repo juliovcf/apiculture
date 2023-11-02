@@ -34,11 +34,11 @@ public class Transaction {
   private PaymentType paymentType;
 
   @ManyToOne
-  @JoinColumn(name = "cliente_id")
+  @JoinColumn(name = "cliente_id", nullable = false)
   private Client client;
 
   @ManyToOne
-  @JoinColumn(name = "user_id")
+  @JoinColumn(name = "user_id", nullable = false)
   private User user;
 
   private String description;
