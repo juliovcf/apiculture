@@ -19,6 +19,7 @@ public class NoteDaoImpl implements NoteDao {
   @Autowired
   NoteRepository repository;
 
+  @SuppressWarnings("null")
   @Override
   public Note create(Note note) {
     return repository.save(note);
@@ -29,6 +30,7 @@ public class NoteDaoImpl implements NoteDao {
     return repository.findAll();
   }
 
+  @SuppressWarnings("null")
   @Override
   public Optional<Note> findById(Long id) {
     return repository.findById(id);
@@ -40,6 +42,7 @@ public class NoteDaoImpl implements NoteDao {
     return repository.save(note);
   }
 
+  @SuppressWarnings("null")
   @Override
   public int delete(Long id) {
     try {

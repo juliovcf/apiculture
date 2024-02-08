@@ -18,6 +18,7 @@ public class ClientDaoImpl implements ClientDao {
   @Autowired
   ClientRepository repository;
 
+  @SuppressWarnings("null")
   @Override
   public Client create(Client client) {
     return repository.save(client);

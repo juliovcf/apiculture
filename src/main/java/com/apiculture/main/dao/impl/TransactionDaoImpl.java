@@ -18,6 +18,7 @@ public class TransactionDaoImpl implements TransactionDao {
   @Autowired
   private TransactionRepository repository;
 
+  @SuppressWarnings("null")
   @Override
   public Transaction create(Transaction transaction) {
     return repository.save(transaction);
@@ -28,6 +29,7 @@ public class TransactionDaoImpl implements TransactionDao {
     return repository.findAll();
   }
 
+  @SuppressWarnings("null")
   @Override
   public Optional<Transaction> findById(Long id) {
     return repository.findById(id);
@@ -39,6 +41,7 @@ public class TransactionDaoImpl implements TransactionDao {
     return repository.save(transaction);
   }
 
+  @SuppressWarnings("null")
   @Override
   public int delete(Long id) {
     try {

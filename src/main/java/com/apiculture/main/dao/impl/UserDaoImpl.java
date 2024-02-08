@@ -18,6 +18,7 @@ public class UserDaoImpl implements UserDao {
   @Autowired
   UserRepository repository;
 
+  @SuppressWarnings("null")
   @Override
   public User create(User user) {
     return repository.save(user);

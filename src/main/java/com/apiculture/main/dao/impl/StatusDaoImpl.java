@@ -17,6 +17,7 @@ public class StatusDaoImpl implements StatusDao {
   @Autowired
   StatusRepository statusRepository;
 
+  @SuppressWarnings("null")
   @Override
   public Status create(Status status) {
     return statusRepository.save(status);

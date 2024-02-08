@@ -17,6 +17,7 @@ public class RoleDaoImpl implements RoleDao {
   @Autowired
   RoleRepository roleRepository;
 
+  @SuppressWarnings("null")
   @Override
   public Role create(Role role) {
     return roleRepository.save(role);
@@ -27,6 +28,7 @@ public class RoleDaoImpl implements RoleDao {
     return roleRepository.findAll();
   }
 
+  @SuppressWarnings("null")
   @Override
   public Optional<Role> findById(Short id) {
     return roleRepository.findById(id);
@@ -38,6 +40,7 @@ public class RoleDaoImpl implements RoleDao {
     return roleRepository.save(role);
   }
 
+  @SuppressWarnings("null")
   @Override
   public int delete(Short id) {
     try {
